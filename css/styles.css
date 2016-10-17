@@ -1,0 +1,311 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+  background-color: rgba(17, 56, 99, 0.9);
+  height: 100%;
+  width: 100%; }
+
+.nav-custom {
+  border: none;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: transparent;
+  transition: all 0.7s ease-in-out;
+  transform: translate(0px, -60px); }
+  .nav-custom .navbar-header .icon-bar {
+    background-color: rgba(245, 245, 245, 0.9); }
+  .nav-custom .list-nav {
+    padding: 15px 10px 15px 10px; }
+    .nav-custom .list-nav li span {
+      display: block;
+      padding: 10px 0px 10px 0px;
+      font-size: 15px;
+      margin-right: 10px; }
+    .nav-custom .list-nav li select {
+      box-sizing: border-box;
+      font-size: 15px;
+      padding: 10px;
+      border: 1px solid rgba(55, 55, 55, 0.3);
+      border-radius: 0px 20px 20px 0px;
+      margin: 0px 10px 0px 0px; }
+    .nav-custom .list-nav li .btn {
+      display: block;
+      margin-right: 100px;
+      box-sizing: border-box;
+      font-size: 15px;
+      padding: 10px;
+      text-transform: uppercase;
+      border-radius: 5px;
+      background: rgba(197, 50, 30, 0.9);
+      border: 1px solid rgba(197, 50, 30, 0.9);
+      font-weight: 700;
+      color: rgba(245, 245, 245, 0.9);
+      letter-spacing: 2px; }
+      .nav-custom .list-nav li .btn:hover {
+        -webkit-animation-name: pulse;
+        -moz-animation-name: pulse;
+        -webkit-animation-duration: 1s;
+        -moz-animation-duration: 1s;
+        -webkit-animation-iteration-count: infinite;
+        -moz-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+        -moz-animation-timing-function: linear; }
+  .nav-custom .custom-links {
+    padding: 10px; }
+    .nav-custom .custom-links a {
+      text-transform: uppercase;
+      font-weight: 700;
+      color: rgba(17, 56, 99, 0.9);
+      transition: all 0.3s ease-in-out; }
+      .nav-custom .custom-links a:hover {
+        color: rgba(197, 50, 30, 0.9);
+        background: transparent;
+        transition: all 0.2s ease-in-out; }
+      .nav-custom .custom-links a:focus {
+        background: transparent; }
+
+.white {
+  background: white; }
+
+.autoheight {
+  min-height: 100%;
+  height: auto; }
+
+.wrapper {
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: relative; }
+
+.landingpage {
+  opacity: 0;
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background: url("../img/background2.png") no-repeat bottom center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out; }
+
+.logo {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10em;
+  text-align: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  z-index: 999;
+  opacity: 0;
+  transition: all 1.5s ease-in-out; }
+  .logo h1 {
+    text-transform: uppercase;
+    font-size: 95px;
+    margin-top: 0px;
+    font-family: 'Signika', sans-serif;
+    color: rgba(17, 56, 99, 0.9);
+    text-shadow: 3px 2px 5px #969696;
+    font-weight: 700;
+    letter-spacing: 2px; }
+    .logo h1 span {
+      color: rgba(197, 50, 30, 0.9); }
+  .logo img {
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto; }
+
+.hero {
+  transform: translate(0px, 300px);
+  background: url("../img/angularhero.png") no-repeat bottom;
+  -webkit-background-size: 100% auto;
+  -moz-background-size: 100% auto;
+  background-size: 100% auto;
+  -o-background-size: 100% auto;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: -50px;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 55%;
+  z-index: 998;
+  transition: all 0.7s ease-in-out;
+  opacity: 0; }
+
+.listcontainer {
+  background-color: white;
+  padding-top: 100px;
+  min-height: 100vh;
+  position: relative; }
+  .listcontainer .loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 1000; }
+    .listcontainer .loading h3 {
+      position: absolute;
+      top: 45%;
+      left: 0;
+      right: 0;
+      text-align: center;
+      text-transform: uppercase;
+      color: #909090; }
+  .listcontainer .table thead tr th {
+    text-transform: uppercase;
+    padding: 15px 15px;
+    text-overflow: ellipsis;
+    font-weight: 700;
+    color: rgba(15, 15, 15, 0.8); }
+  .listcontainer .table tbody {
+    font-size: 15px; }
+    .listcontainer .table tbody tr .modal .modal-body {
+      padding: 30px; }
+      .listcontainer .table tbody tr .modal .modal-body .row {
+        padding-bottom: 10px; }
+    .listcontainer .table tbody tr td {
+      vertical-align: middle;
+      border-top: 1px solid #e7ebee;
+      padding: 15px 15px; }
+      .listcontainer .table tbody tr td button {
+        width: 110px;
+        height: 40px;
+        font-size: 15px; }
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2); }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
+@-moz-keyframes pulse {
+  0% {
+    -moz-transform: scale(1);
+    transform: scale(1); }
+  50% {
+    -moz-transform: scale(1.2);
+    transform: scale(1.2); }
+  100% {
+    -moz-transform: scale(1);
+    transform: scale(1); } }
+
+@media (max-width: 767px) {
+  .white {
+    background: rgba(17, 56, 99, 0.9); }
+  .nav-custom {
+    border-style: none;
+    background: rgba(17, 56, 99, 0.9); }
+    .nav-custom .list-nav {
+      text-align: center;
+      padding: 10px 0px 30px 0px;
+      margin: 0px;
+      border-style: none; }
+      .nav-custom .list-nav li span {
+        display: block;
+        padding: 10px 0px 3px 0px;
+        font-size: 12px;
+        color: rgba(245, 245, 245, 0.9); }
+      .nav-custom .list-nav li select {
+        box-sizing: border-box;
+        font-size: 15px;
+        padding: 5px;
+        border: 1px solid rgba(55, 55, 55, 0.3);
+        border-radius: 20px;
+        margin: 0px 10px 0px 0px;
+        text-align-last: center; }
+      .nav-custom .list-nav li .btn {
+        margin: 0;
+        font-size: 15px;
+        padding: 10px;
+        border-radius: 3px;
+        background: rgba(197, 50, 30, 0.9);
+        border: 1px solid rgba(197, 50, 30, 0.9);
+        color: rgba(245, 245, 245, 0.9); }
+        .nav-custom .list-nav li .btn:hover {
+          -webkit-animation-name: none;
+          -moz-animation-name: none; }
+    .nav-custom .custom-links {
+      padding: 10px;
+      text-align: center; }
+      .nav-custom .custom-links a {
+        color: rgba(245, 245, 245, 0.9); }
+        .nav-custom .custom-links a:hover {
+          color: rgba(197, 50, 30, 0.9); }
+  .logo {
+    margin-top: 100px;
+    width: 100%;
+    z-index: 999; }
+    .logo h1 {
+      font-size: 45px;
+      margin-top: 10px; }
+    .logo img {
+      height: 35px;
+      margin-left: auto;
+      margin-right: auto; }
+  .hero {
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 998;
+    transition: all 0.7s ease-in-out;
+    opacity: 0; }
+  .listcontainer {
+    padding-top: 50px; }
+    .listcontainer .table thead {
+      font-size: 12px; }
+      .listcontainer .table thead tr th {
+        text-transform: uppercase;
+        padding: 5px 5px;
+        font-weight: 700;
+        color: rgba(15, 15, 15, 0.8); }
+    .listcontainer .table tbody {
+      font-size: 12px; }
+      .listcontainer .table tbody tr td {
+        padding: 5px 5px; }
+        .listcontainer .table tbody tr td button {
+          width: 60px;
+          height: 20px;
+          font-size: 10px;
+          padding: 2px;
+          text-overflow: ellipsis; } }
+
+@media (max-width: 992px) {
+  .container {
+    width: 100%; }
+  .nav-custom .list-nav {
+    font-size: 13px; }
+    .nav-custom .list-nav li span {
+      display: block;
+      font-size: 15px; }
+    .nav-custom .list-nav li .btn {
+      margin-right: 8px; }
+  .nav-custom .custom-links {
+    padding: 10px;
+    font-size: 13px; }
+  .logo {
+    margin-top: 170px; }
+  .hero {
+    bottom: 0;
+    height: 100%;
+    width: 100%; } }
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,108 @@
+@media(max-width:767px) {
+    .white {
+        background: $primary-blue;
+    }
+    .nav-custom {
+        border-style: none;
+        background: $primary-blue;
+        .list-nav {
+            text-align: center;
+            padding: 10px 0px 30px 0px;
+            margin: 0px;
+            border-style: none;
+            li {
+                span {
+                    display: block;
+                    padding: 10px 0px 3px 0px;
+                    font-size: 12px;
+                    color: $primary-white;
+                }
+                select {
+                    box-sizing: border-box;
+                    font-size: 15px;
+                    padding: 5px;
+                    border: 1px solid rgba(55, 55, 55, 0.3);
+                    border-radius: 20px;
+                    margin: 0px 10px 0px 0px;
+                    text-align-last: center;
+                }
+                .btn {
+                    margin: 0;
+                    font-size: 15px;
+                    padding: 10px;
+                    border-radius: 3px;
+                    background: $primary-red;
+                    border: 1px solid $primary-red;
+                    color: $primary-white;
+                    &:hover {
+                        -webkit-animation-name: none;
+                        -moz-animation-name: none;
+                    }
+                }
+            }
+        }
+        .custom-links {
+            padding: 10px;
+            text-align: center;
+            a {
+                color: $primary-white;
+                &:hover {
+                    color: $primary-red;
+                }
+            }
+        }
+    }
+    .logo {
+        margin-top: 100px;
+        width: 100%;
+        z-index: 999;
+        h1 {
+            font-size: 45px;
+            margin-top: 10px;
+        }
+        img {
+            height: 35px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+    .hero {
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 998;
+        transition: all 0.7s ease-in-out;
+        opacity: 0;
+    }
+    .listcontainer {
+        padding-top: 50px;
+        .table {
+            thead {
+                font-size: 12px;
+                tr {
+                    th {
+                        text-transform: uppercase;
+                        padding: 5px 5px;
+                        font-weight: 700;
+                        color: rgba(15, 15, 15, 0.8);
+                    }
+                }
+            }
+            tbody {
+                font-size: 12px;
+                tr {
+                    td {
+                        padding: 5px 5px;
+                        button {
+                            width: 60px;
+                            height: 20px;
+                            font-size: 10px;
+                            padding: 2px;
+                            text-overflow: ellipsis;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

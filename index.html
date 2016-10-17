@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>AngularJS HALL OF FAME</title>
+
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Signika:700" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://code.angularjs.org/1.5.8/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.5.8/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="js/underscore-min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/mainController.js"></script>
+    <script src="js/controllers/listController.js"></script>
+    
+</head>
+
+<body ng-class="{autoheight: locate === '/list'}" ng-controller="mainController">
+    <nav class="navbar nav-custom">
+        <div class="container" ng-class="{white: locate === '/list'}">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right custom-links">
+                    <li class="home"><a href="#/">Home</a></li>
+                    <li><a href="https://bitbucket.org/thetruenoselak/angularjs-hall-of-fame-app">Source Code on GitBucket</a></li>
+                    <li><a href="mailto: dworanowski.adrian@gmail.com">Contact</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-left list-nav">
+                    <li class="listlink"> <a class="btn" href="#list">View the list!</a> </li>
+                    <li><span>Sort by</span></li>
+                    <li>
+                        <select class="sortselect" ng-model="sortColumn">
+                            <option value="login">Login</option>
+                            <option value="-contributions">Contributions</option>
+                            <option value="-public_repos">Public Repos </option>
+                            <option value="-public_gists">Public Gists</option>
+                            <option value="-followers">Followers</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="wrapper" ng-view></div>
+    <script src="js/animations.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<div class="container listcontainer">
+    <div class="loading" ng-show="loading"><h3>Loading</h3></div>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="col-sm-3 col-md-3">Login</th>
+                    <th class="col-sm-2 col-md-2">Contributions</th>
+                    <th class="col-sm-2 col-md-2">Repos</th>
+                    <th class="col-sm-2 col-md-2">Gists</th>
+                    <th class="col-sm-2 col-md-2">Followers</th>
+                    <th class="col-sm-1 col-md-1"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="user in users | orderBy: sortColumn">
+                    <td>{{user.login}}</td>
+                    <td>{{user.contributions}}</td>
+                    <td>{{user.public_repos}}</td>
+                    <td>{{user.public_gists}}</td>
+                    <td>{{user.followers}}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal{{user.login}}"> View details </button>
+                        <div class="modal fade" id="modal{{user.login}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">User details</h4> </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-xs-4 col-md-4"> Name: </div>
+                                            <div class="col-xs-8 col-md-8"> {{user.name}} </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-4 col-md-4"> Login: </div>
+                                            <div class="col-xs-8 col-md-8"> {{user.login}} </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-4 col-md-4"> Contributions: </div>
+                                            <div class="col-xs-8 col-md-8"> {{user.contributions}} </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-4 col-md-4"> Repos: </div>
+                                            <div class="col-xs-8 col-md-8"> {{user.public_repos}} </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-4 col-md-4"> Gists: </div>
+                                            <div class="col-xs-8 col-md-8"> {{user.public_gists}} </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-4 col-md-4"> Followers: </div>
+                                            <div class="col-xs-8 col-md-8"> {{user.followers}} </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-4 col-md-4"> Following: </div>
+                                            <div class="col-xs-8 col-md-8"> {{user.following}} </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-4 col-md-4"> Location: </div>
+                                            <div class="col-xs-8 col-md-8"> {{user.location}} </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-4 col-md-4"> Company: </div>
+                                            <div class="col-xs-8 col-md-8"> {{user.company}} </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-4 col-md-4"> Blog: </div>
+                                            <div class="col-xs-8 col-md-8"> <a href="{{user.blog}}">{{user.blog}}</a> </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-4 col-md-4"> E-mail: </div>
+                                            <div class="col-xs-8 col-md-8"> {{user.email}} </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
