@@ -1,99 +1,71 @@
-MyApp.controller('listController', ['$scope', '$location', '$rootScope', '$http', '$q', function ($scope, $location, $rootScope, $http, $q) {
-    
+MyApp.controller('listController', ['$scope', '$location', '$rootScope', '$http', '$q', 'reduceObjService', 'promiseArrService', function ($scope, $location, $rootScope, $http, $q, reduceObjService, promiseArrService) {
     $scope.$emit('LOAD');
-    
     // temporary arrays for data processing
+    var token = "4f3f0fdcde9b8b4a266544368fe3b9bdd888c83b";
     $scope.userTempData1 = [];
     $scope.userTempData2 = [];
     $scope.userTempData3 = [];
-    $scope.angRepos = [];
+    $scope.ngRepos = [];
     $scope.contributorsUrl = [];
     $scope.tempUsers = [];
     var promises = [];
     var userPromises = [];
     // array for user/contributors data
     $scope.users = [];
+    $scope.maxSize = 5;
+    $scope.pageSize = 10;
+    $scope.currentPage = 1;
     
     $http
     // getting the list of angular repos
         .get("https://api.github.com/users/angular/repos", {
             params: {
-                "access_token": "4f3f0fdcde9b8b4a266544368fe3b9bdd888c83b"
+                "access_token": token
             }
         }).then(function (response) {
-            $scope.angRepos = response.data;
+            $scope.ngRepos = response.data;
             // getting the url to the contributors json
-            for (var i = 0; i < $scope.angRepos.length; i++) {
-                $scope.contributorsUrl.push($scope.angRepos[i].contributors_url);
+            for (var i = 0; i < $scope.ngRepos.length; i++) {
+                $scope.contributorsUrl.push($scope.ngRepos[i].contributors_url);
             }
-            return $scope.contributorsUrl;
-        })
-        // creating promises to get the lists of contributors
-        .then(function (response) {
-            for (var i = 0; i < $scope.contributorsUrl.length; i++) {
-                promises.push($http.get($scope.contributorsUrl[i], {
+        
+            return promiseArrService.promiseArr($scope.contributorsUrl, promises, $scope.contributorsUrl, token);
+
+        }).then(function (data) {
+            for (var i = 0; i < data.length; i++) {
+                $scope.userTempData1.push(data[i].data);
+            }
+
+            // merging contributors arrays into one array
+            for (var j = 0; j < $scope.userTempData1.length; j++) {
+                $scope.userTempData2 = $scope.userTempData2.concat($scope.userTempData1[j]);
+            }
+            // removing duplicates and calculating the sum of contributions made by each user (in case if any conributor made contributions in 2 or more repos. )
+            $scope.userTempData3 = reduceObjService.reduceObj($scope.userTempData2, "login", "contributions");
+    
+        
+            for (var x = 0; x < $scope.userTempData3.length; x++) {
+                userPromises.push($http.get("http://api.github.com/users/" + $scope.userTempData3[x].login, {
                     params: {
-                        "access_token": "4f3f0fdcde9b8b4a266544368fe3b9bdd888c83b"
+                        "access_token": token
                     }
                 }));
             }
-            // pushing the arrays with contributors into one array
-            $q.all(promises).then(function (data) {
-                for (var i = 0; i < data.length; i++) {
-                    $scope.userTempData1.push(data[i].data);
-                }
-                // merging contributors arrays into one array
-                for (var j = 0; j < $scope.userTempData1.length; j++) {
-                    $scope.userTempData2 = $scope.userTempData2.concat($scope.userTempData1[j]);
-                }
-                // removing duplicates and calculating the sum of contributions made by each user (in case if any conributor made contributions in 2 or more repos. )
-                $scope.userTempData3 = reduceObjArr($scope.userTempData2, "login", "contributions");
-                return $scope.userTempData3;
+            return $q.all(userPromises);
 
-                function reduceObjArr(objArr, idkey, valkey) {
-                    var temp = {};
-                    var obj = null;
-                    for (var i = 0; i < objArr.length; i++) {
-                        obj = objArr[i];
-                        if (!temp[obj[idkey]]) {
-                            temp[obj[idkey]] = obj;
-                        }
-                        else {
-                            temp[obj[idkey]][valkey] += obj[valkey];
-                        }
-                    }
-                    var result = [];
-                    for (var prop in temp) result.push(temp[prop]);
-                    return result;
-                }
-            }).then(function (response) {
-                // creating promises to get the rest of the data of each user/contributor
-                for (var x = 0; x < $scope.userTempData3.length; x++) {
-                    userPromises.push($http.get("http://api.github.com/users/" + $scope.userTempData3[x].login, {
-                        params: {
-                            "access_token": "4f3f0fdcde9b8b4a266544368fe3b9bdd888c83b"
-                        }
-                    }));
-                }
-                // getting an array with user data objects;
-                $q.all(userPromises).then(function (data) {
-                        for (var i = 0; i < data.length; i++) {
-                            $scope.tempUsers.push(data[i].data);
-                        }
-                        return $scope.tempUsers;
-                    })
-                    // merging user data with user/contributor objects;
-                    .then(function (data) {
-                        $scope.users = _.map($scope.tempUsers, function (base) {
-                            return _.extend(base, _.findWhere($scope.userTempData3, {
-                                login: base.login
-                            }));
-                        });
-                    
-                    $scope.$emit('UNLOAD');
-                    });
+        }).then(function (data) {
+            for (var i = 0; i < data.length; i++) {
+                $scope.tempUsers.push(data[i].data);
+            }
+            return $scope.tempUsers;
+        })
+        // merging user data with user/contributor objects;
+        .then(function (data) {
+            $scope.users = _.map($scope.tempUsers, function (base) {
+                return _.extend(base, _.findWhere($scope.userTempData3, {
+                    login: base.login
+                }));               
             });
+            $scope.$emit('UNLOAD');
         });
-    
-    
 }]);

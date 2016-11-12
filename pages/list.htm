@@ -1,32 +1,35 @@
-<div class="container listcontainer">
-    <div class="loading" ng-show="loading"><h3>Loading</h3></div>
+<div class="container listcontainer" ng-controller="listController">
+    <div class="loading" ng-show="loading">
+        <h3>Loading</h3>
+    </div>
     <div class="table-responsive">
+        <input type="text" placeholder="Search contributors" ng-model="contrSearch" />
         <table class="table">
             <thead>
                 <tr>
-                    <th class="col-sm-3 col-md-3">Login</th>
-                    <th class="col-sm-2 col-md-2">Contributions</th>
-                    <th class="col-sm-2 col-md-2">Repos</th>
-                    <th class="col-sm-2 col-md-2">Gists</th>
-                    <th class="col-sm-2 col-md-2">Followers</th>
-                    <th class="col-sm-1 col-md-1"></th>
+                    <th class="col-xs-2 col-sm-2 col-md-3">Login</th>
+                    <th class="col-xs-2 col-sm-2 col-md-2">Contributions</th>
+                    <th class="col-xs-2 col-sm-2 col-md-2">Repos</th>
+                    <th class="col-xs-2 col-sm-2 col-md-2">Gists</th>
+                    <th class="col-xs-2 col-sm-2 col-md-2">Followers</th>
+                    <th class="col-xs-2 col-sm-2 col-md-1"></th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="user in users | orderBy: sortColumn">
+                <tr ng-repeat="user in users | filter: contrSearch | orderBy: sortColumn | startFrom: (currentPage - 1) * pageSize | limitTo: pageSize">
                     <td>{{user.login}}</td>
                     <td>{{user.contributions}}</td>
                     <td>{{user.public_repos}}</td>
                     <td>{{user.public_gists}}</td>
                     <td>{{user.followers}}</td>
                     <td>
-                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal{{user.login}}"> View details </button>
+                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal{{user.login}}"> Details </button>
                         <div class="modal fade" id="modal{{user.login}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">User details</h4> </div>
+                                        <h4 class="modal-title" id="myModalLabel">Details</h4> </div>
                                     <div class="modal-body">
                                         <div class="row">
                                             <div class="col-xs-4 col-md-4"> Name: </div>
@@ -83,5 +86,8 @@
                 </tr>
             </tbody>
         </table>
+        <div class="pagcontainer">
+            <ul uib-pagination total-items="234" ng-model="currentPage" items-per-page="pageSize" max-size="maxSize" class="pagination-sm"> </ul>
+        </div>
     </div>
 </div>

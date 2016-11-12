@@ -1,170 +1,177 @@
 body,
-    html {
-        margin: 0;
-        padding: 0;
-        font-family: 'Lato', sans-serif;
-        background-color: $primary-blue;
-        height: 100%;
-        width: 100%;
-    }
-    
-    .nav-custom {
-        border: none;
-        box-sizing: border-box;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-        background-color: transparent;
-        transition: all 0.7s ease-in-out;
-        transform: translate(0px, -60px);
-        .navbar-header {
-            .icon-bar {
-                background-color: $primary-white;
-            }
-        }
-        .list-nav {
-            padding: 15px 10px 15px 10px;
-            li {
-                span {
-                    display: block;
-                    padding: 10px 0px 10px 0px;
-                    font-size: 15px;
-                    margin-right: 10px;
-                }
-                select {
-                    box-sizing: border-box;
-                    font-size: 15px;
-                    padding: 10px;
-                    border: 1px solid rgba(55, 55, 55, 0.3);
-                    border-radius: 0px 20px 20px 0px;
-                    margin: 0px 10px 0px 0px;
-                }
-                .btn {
-                    display: block;
-                    margin-right: 100px;
-                    box-sizing: border-box;
-                    font-size: 15px;
-                    padding: 10px;
-                    text-transform: uppercase;
-                    border-radius: 5px;
-                    background: $primary-red;
-                    border: 1px solid $primary-red;
-                    font-weight: 700;
-                    color: $primary-white;
-                    letter-spacing: 2px;
-                    &:hover {
-                        -webkit-animation-name: pulse;
-                        -moz-animation-name: pulse;
-                        -webkit-animation-duration: 1s;
-                        -moz-animation-duration: 1s;
-                        -webkit-animation-iteration-count: infinite;
-                        -moz-animation-iteration-count: infinite;
-                        -webkit-animation-timing-function: linear;
-                        -moz-animation-timing-function: linear;
-                    }
-                }
-            }
-        }
-        .custom-links {
-            padding: 10px;
-            a {
-                text-transform: uppercase;
-                font-weight: 700;
-                color: $primary-blue;
-                transition: all 0.3s ease-in-out;
-                &:hover {
-                    color: $primary-red;
-                    background: transparent;
-                    transition: all 0.2s ease-in-out;
-                }
-                &:focus {
-                    background: transparent;
-                }
-            }
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    background-color: $primary-blue;
+    height: 100%;
+    width: 100%;
+    color: $primary-text;
+}
+
+.nav-custom {
+    border: none;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: transparent;
+    transition: all 0.7s ease-in-out;
+    transform: translate(0px, -60px);
+    .navbar-header {
+        .icon-bar {
+            background-color: $primary-white;
         }
     }
-    
-    .white {
-        background: $secondary-white;
-    }
-    
-    .autoheight {
-        min-height: 100%;
-        height: auto;
-    }
-    
-    .wrapper {
-        display: block;
-        height: 100%;
-        width: 100%;
-        position: relative;
-    }
-    
-    .landingpage {
-        opacity: 0;
-        display: block;
-        height: 100%;
-        width: 100%;
-        position: relative;
-        background: url("../img/background2.png") no-repeat bottom center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        background-size: cover;
-        -o-background-size: cover;
-        overflow: hidden;
-        transition: all 0.5s ease-in-out;
-    }
-    
-    .logo {
-        position: relative;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 10em;
-        text-align: center;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 200px;
-        z-index: 999;
-        opacity: 0;
-        transition: all 1.5s ease-in-out;
-        h1 {
-            text-transform: uppercase;
-            font-size: 95px;
-            margin-top: 0px;
-            font-family: 'Signika', sans-serif;
-            color: rgba(17, 56, 99, 0.9);
-            text-shadow: 3px 2px 5px rgba(150, 150, 150, 1);
-            font-weight: 700;
-            letter-spacing: 2px;
+    .list-nav {
+        padding: 15px 10px 15px 10px;
+        li {
             span {
-                color: rgba(197, 50, 30, 0.9);
+                display: block;
+                padding: 10px 0px 10px 0px;
+                font-size: 15px;
+                margin-right: 10px;
+            }
+            select {
+                box-sizing: border-box;
+                font-size: 15px;
+                padding: 10px;
+                border: 1px solid rgba(55, 55, 55, 0.3);
+                border-radius: 0px 20px 20px 0px;
+                margin: 0px 10px 0px 0px;
+                &:focus {
+                    outline: none;
+                    -webkit-box-shadow: none !important;
+                    -moz-box-shadow: none !important;
+                    box-shadow: none !important;
+                }
+            }
+            .btn {
+                display: block;
+                margin-right: 100px;
+                box-sizing: border-box;
+                font-size: 15px;
+                padding: 10px;
+                text-transform: uppercase;
+                border-radius: 5px;
+                background: $primary-red;
+                border: 1px solid $primary-red;
+                font-weight: 700;
+                color: $primary-white;
+                letter-spacing: 2px;
+                &:hover {
+                    -webkit-animation-name: pulse;
+                    -moz-animation-name: pulse;
+                    -webkit-animation-duration: 1s;
+                    -moz-animation-duration: 1s;
+                    -webkit-animation-iteration-count: infinite;
+                    -moz-animation-iteration-count: infinite;
+                    -webkit-animation-timing-function: linear;
+                    -moz-animation-timing-function: linear;
+                }
             }
         }
-        img {
-            height: 40px;
-            margin-left: auto;
-            margin-right: auto;
+    }
+    .custom-links {
+        padding: 10px;
+        a {
+            text-transform: uppercase;
+            font-weight: 700;
+            color: $primary-blue;
+            transition: all 0.3s ease-in-out;
+            &:hover {
+                color: $primary-red;
+                background: transparent;
+                transition: all 0.2s ease-in-out;
+            }
+            &:focus {
+                background: transparent;
+            }
         }
     }
-    
-    .hero {
-        transform: translate(0px, 300px);
-        background: url("../img/angularhero.png") no-repeat bottom;
-        -webkit-background-size: 100% auto;
-        -moz-background-size: 100% auto;
-        background-size: 100% auto;
-        -o-background-size: 100% auto;
-        position: absolute;
+}
+
+.white {
+    background: $secondary-white;
+}
+
+.autoheight {
+    min-height: 100%;
+    height: auto;
+}
+
+.wrapper {
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.landingpage {
+    opacity: 0;
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background: url("../img/background2.png") no-repeat bottom center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+}
+
+.logo {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10em;
+    text-align: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    z-index: 999;
+    opacity: 0;
+    transition: all 1.5s ease-in-out;
+    h1 {
+        text-transform: uppercase;
+        font-size: 95px;
+        margin-top: 0px;
+        font-family: 'Signika', sans-serif;
+        color: rgba(17, 56, 99, 0.9);
+        text-shadow: 3px 2px 5px rgba(150, 150, 150, 1);
+        font-weight: 700;
+        letter-spacing: 2px;
+        span {
+            color: rgba(197, 50, 30, 0.9);
+        }
+    }
+    img {
+        height: 40px;
         margin-left: auto;
         margin-right: auto;
-        bottom: -50px;
-        left: 0;
-        right: 0;
-        height: 100%;
-        width: 55%;
-        z-index: 998;
-        transition: all 0.7s ease-in-out;
-        opacity: 0;
     }
+}
+
+.hero {
+    transform: translate(0px, 300px);
+    background: url("../img/angularhero.png") no-repeat bottom;
+    -webkit-background-size: 100% auto;
+    -moz-background-size: 100% auto;
+    background-size: 100% auto;
+    -o-background-size: 100% auto;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: -50px;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 55%;
+    z-index: 998;
+    transition: all 0.7s ease-in-out;
+    opacity: 0;
+}
