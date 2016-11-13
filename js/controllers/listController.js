@@ -1,7 +1,7 @@
 MyApp.controller('listController', ['$scope', '$location', '$rootScope', '$http', '$q', 'reduceObjService', 'promiseArrService', function ($scope, $location, $rootScope, $http, $q, reduceObjService, promiseArrService) {
     $scope.$emit('LOAD');
     // temporary arrays for data processing
-    var token = "4f3f0fdcde9b8b4a266544368fe3b9bdd888c83b";
+    var token = "f7dee70d1deec5fcfd0502373a8ea087f1bd32ff";
     $scope.userTempData1 = [];
     $scope.userTempData2 = [];
     $scope.userTempData3 = [];
